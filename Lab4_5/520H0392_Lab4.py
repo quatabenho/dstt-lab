@@ -55,7 +55,7 @@ x,y=sp.symbols('x,y')
 
 eq1 = sp.Eq(x+y,0)
 eq2 = sp.Eq(x-y,2)
-plt.title('System 1')
+plt.title('System 1 - 1 sol')
 
 sol=sp.solve((eq1,eq2),(x,y))
 x=sol[x]
@@ -67,25 +67,42 @@ plt.show()
 
 # System 2
 eq1 = sp.Eq(x+y,5)
-eq2 = sp.Eq(3*x-5*y,15)
+eq2 = sp.Eq(2*x+2*y,12)
 sol=sp.solve((eq1,eq2),(x,y))
-x=sol[x]
-y=sol[y]
-    
-plot2DEquation(x_arr,1,1,5)
-plot2DEquation(x_arr,3,3,15)
 
-plt.title('System 3')
+plot2DEquation(x_arr,1,1,5)
+plot2DEquation(x_arr,2,2,12)
+
+plt.title('System 2 - no sol')
 plt.legend()
 plt.show()
 
 
-# plot2DEquation(x_arr,1,0,0)
-# plot2DEquation(x_arr,1,-1,2)
+# System 3
+plot2DEquation(x_arr,1,1,5)
+plot2DEquation(x_arr,3,3,15)
 
 
-# plt.title('3')
-# plt.scatter(x,y, color = 'red')
-# plt.legend()
-# plt.show()
+plt.title('System 3 - al sol')
+plt.legend()
+plt.show()
 
+
+# System 4
+
+plot2DEquation(x_arr,1,0,0)
+plot2DEquation(x_arr,1,-1,2)
+
+
+plt.title('System 4')
+plt.legend()
+plt.show()
+
+# if lenx -> title
+def title_scatter(x_arr,x,y):
+    if len(x_arr) == 0:
+        plt.title('System - inf sol')
+        
+    else:
+        plt.title('System - 1 sol')
+        plt.scatter(x,y,color='g')
