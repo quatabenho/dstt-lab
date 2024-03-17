@@ -26,3 +26,51 @@ print('Number of children = ',result[children],'\nNumber of adults = ',result[ad
 
 
 
+# Exercise 8
+
+print('\nExercise 8')
+x,y,z,t = sp.symbols('x y z t')
+eq1= sp.Eq(2*x-4*y+4*z+0.077*t,3.86)
+eq2= sp.Eq(-2*y+2*z-0.056*t,-3.47)
+eq3= sp.Eq(2*x-2*y,0)
+result = sp.solve((eq1,eq2,eq3),(x,y,z,t))
+
+print('x = ',result[x],'\ny = ',result[y],'\nz = ',result[z])
+
+
+# Exercise 9
+
+print('\nExercise 9')
+R,G,B = sp.symbols('R G B')
+X,Y,Z = sp.symbols('X Y Z')
+XYZ = np.array([9,32,150])
+A = np.array([[0.61,0.29,0.15],[0.35,0.59,0.063],[0.04,0.12,0.787]])
+
+A1 = np.linalg.inv(A)
+
+RGB = np.dot(A1,XYZ)
+print('R = ',RGB[0],'\nG = ',RGB[1],'\nB = ',RGB[2])
+
+
+# Exercsie 10
+print('\nExercise 10')
+A = np.array([[0.25,0.15,0.1],[0.4,0.15,0.2],[0.15,0.2,0.2]])
+d = np.array([[100,100,100]]).T
+
+print('p = ',np.matmul((np.linalg.inv(np.eye(3)-A)),d))
+
+# Exercise 11
+print('\nExercise 11')
+x1, x2, x3, x4 = sp.symbols('x1 x2 x3 x4')
+
+eq1 = sp.Eq((3*x1-x3),0)
+eq2 = sp.Eq((8*x1-2*x4),0)
+eq3 = sp.Eq((2*x2-2*x3-x4),0)
+result = sp.solve((eq1,eq2,eq3),(x1,x2,x3,x4))
+
+x4_value = 4
+result = {var: sol.subs(x4, x4_value) for var, sol in result.items()}
+result[x4] = x4_value
+
+print('x1 = ',result[x1],'\nx2 = ',result[x2],'\nx3 = ',result[x3],'\nx4 = ',result[x4])
+
