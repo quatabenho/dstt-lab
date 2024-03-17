@@ -22,7 +22,7 @@ eq1= sp.Eq(3*children+3.2*adult,118.4)
 eq2= sp.Eq(3.5*children+3.6*adult,135.2)
 result = sp.solve((eq1,eq2),(children,adult))
 
-print('Number of children = ',result[children],'\nNumber of adults = ',result[adult])
+print('Number of children = ',round(result[children]),'\nNumber of adults = ',round(result[adult]))
 
 
 
